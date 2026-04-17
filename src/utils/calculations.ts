@@ -5,6 +5,13 @@ export const calculateHarvestedGains = (
   holdings: Holding[],
   selectedCoins: string[]
 ): CapitalGains => {
+  if (!originalGains) {
+    return {
+      stcg: { profits: 0, losses: 0 },
+      ltcg: { profits: 0, losses: 0 }
+    };
+  }
+
   const selectedHoldings = holdings.filter(h => selectedCoins.includes(h.coin));
   
   const newGains: CapitalGains = {
@@ -35,7 +42,9 @@ export const calculateHarvestedGains = (
   return newGains;
 };
 
-export const calculateSavings = (originalGains: CapitalGains, harvestedGains: CapitalGains): number => {
+export const calculateSavings = (originalGains: CapitalGains | null, harvestedGains: CapitalGains): number => {
+  if (!originalGains) return 0;
+  
   const originalNet = (originalGains.stcg.profits - originalGains.stcg.losses) + 
                      (originalGains.ltcg.profits - originalGains.ltcg.losses);
   const harvestedNet = (harvestedGains.stcg.profits - harvestedGains.stcg.losses) + 

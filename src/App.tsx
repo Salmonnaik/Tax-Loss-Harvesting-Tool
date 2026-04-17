@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import CapitalGainsCard from './components/CapitalGainsCard';
 import HoldingsTable from './components/HoldingsTable';
+import HoldingsTableSkeleton from './components/HoldingsTableSkeleton';
+import Loader from './components/Loader';
 import { fetchHoldings, fetchCapitalGains } from './services/api';
 import { CapitalGains, Holding } from './services/mockData';
 import { calculateHarvestedGains, calculateSavings } from './utils/calculations';
@@ -10,6 +12,7 @@ const App: React.FC = () => {
   const [originalGains, setOriginalGains] = useState<CapitalGains | null>(null);
   const [selectedHoldings, setSelectedHoldings] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
@@ -25,6 +28,7 @@ const App: React.FC = () => {
         console.error('Error loading data:', error);
       } finally {
         setLoading(false);
+        setInitialLoad(false);
       }
     };
 
@@ -39,7 +43,6 @@ const App: React.FC = () => {
     setShowAll(!showAll);
   };
 
-  
   const getHarvestedGains = (): CapitalGains => {
     if (!originalGains) return {
       stcg: { profits: 0, losses: 0 },
@@ -55,10 +58,10 @@ const App: React.FC = () => {
     return calculateSavings(originalGains, harvestedGains);
   };
 
-  if (loading) {
+  if (initialLoad) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="text-lg font-semibold text-gray-700">Loading...</div>
+        <Loader size="large" message="Loading Tax Loss Harvesting Data..." />
       </div>
     );
   }
@@ -71,8 +74,8 @@ const App: React.FC = () => {
     );
   }
 
-  const harvestedGains = getHarvestedGains();
-  const savings = getSavings();
+  const harvestedGains: CapitalGains = getHarvestedGains();
+  const savings: number = getSavings();
 
   return (
     <div className="min-h-screen bg-gray-100 py-8">
@@ -141,7 +144,7 @@ const App: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <CapitalGainsCard
             title="Before Harvesting"
-            capitalGains={originalGains}
+            capitalGains={originalGains!}
             isDark={true}
           />
           <CapitalGainsCard
@@ -152,13 +155,17 @@ const App: React.FC = () => {
           />
         </div>
 
-        <HoldingsTable
-          holdings={holdings}
-          selectedHoldings={selectedHoldings}
-          onSelectionChange={handleSelectionChange}
-          showAll={showAll}
-          onToggleShowAll={handleToggleShowAll}
-        />
+        {loading && !initialLoad ? (
+          <HoldingsTableSkeleton />
+        ) : (
+          <HoldingsTable
+            holdings={holdings}
+            selectedHoldings={selectedHoldings}
+            onSelectionChange={handleSelectionChange}
+            showAll={showAll}
+            onToggleShowAll={handleToggleShowAll}
+          />
+        )}
       </div>
     </div>
   );
