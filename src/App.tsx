@@ -80,16 +80,16 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center mb-8 text-gray-900">
+        <h1 className="text-3xl font-bold text-center mb-8 text-gray-900 animate-fade-in">
           Tax Loss Harvesting Tool
         </h1>
         
         {/* How It Works Section */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold mb-4 text-gray-900">How It Works</h2>
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-8 card-animate">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900 animate-slide-left">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+            <div className="text-center hover-lift">
+              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold animate-bounce">
                 1
               </div>
               <h3 className="font-semibold mb-2">Review Your Holdings</h3>
@@ -97,8 +97,8 @@ const App: React.FC = () => {
                 View all your cryptocurrency holdings with their current gains and losses. See short-term and long-term positions at a glance.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+            <div className="text-center hover-lift">
+              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold animate-bounce" style={{ animationDelay: '0.2s' }}>
                 2
               </div>
               <h3 className="font-semibold mb-2">Select Losses</h3>
@@ -106,8 +106,8 @@ const App: React.FC = () => {
                 Choose holdings with losses to harvest. These losses can offset your gains and reduce your overall tax liability.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold">
+            <div className="text-center hover-lift">
+              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 font-bold animate-bounce" style={{ animationDelay: '0.4s' }}>
                 3
               </div>
               <h3 className="font-semibold mb-2">See Your Savings</h3>
@@ -119,22 +119,22 @@ const App: React.FC = () => {
         </div>
 
         {/* Important Notes Section */}
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
-          <h2 className="text-xl font-bold mb-3 text-gray-900">Important Notes</h2>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8 card-animate">
+          <h2 className="text-xl font-bold mb-3 text-gray-900 animate-slide-right">Important Notes</h2>
           <ul className="space-y-2 text-gray-700">
-            <li className="flex items-start">
+            <li className="flex items-start hover-scale">
               <span className="text-yellow-600 mr-2">•</span>
               <span>Tax loss harvesting only offsets gains, it doesn't eliminate them entirely. Consult a tax professional for personalized advice.</span>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start hover-scale">
               <span className="text-yellow-600 mr-2">•</span>
               <span>Wash sale rules may apply. You typically cannot claim losses on securities you repurchase within 30 days.</span>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start hover-scale">
               <span className="text-yellow-600 mr-2">•</span>
               <span>This tool provides estimates based on current data. Actual tax implications may vary based on your specific situation.</span>
             </li>
-            <li className="flex items-start">
+            <li className="flex items-start hover-scale">
               <span className="text-yellow-600 mr-2">•</span>
               <span>Keep detailed records of all transactions for accurate tax reporting and compliance purposes.</span>
             </li>
@@ -142,29 +142,35 @@ const App: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <CapitalGainsCard
-            title="Before Harvesting"
-            capitalGains={originalGains!}
-            isDark={true}
-          />
-          <CapitalGainsCard
-            title="After Harvesting"
-            capitalGains={harvestedGains}
-            isDark={false}
-            savings={savings > 0 ? savings : undefined}
-          />
+          <div className="animate-slide-left">
+            <CapitalGainsCard
+              title="Before Harvesting"
+              capitalGains={originalGains!}
+              isDark={true}
+            />
+          </div>
+          <div className="animate-slide-right">
+            <CapitalGainsCard
+              title="After Harvesting"
+              capitalGains={harvestedGains}
+              isDark={false}
+              savings={savings > 0 ? savings : undefined}
+            />
+          </div>
         </div>
 
         {loading && !initialLoad ? (
           <HoldingsTableSkeleton />
         ) : (
-          <HoldingsTable
-            holdings={holdings}
-            selectedHoldings={selectedHoldings}
-            onSelectionChange={handleSelectionChange}
-            showAll={showAll}
-            onToggleShowAll={handleToggleShowAll}
-          />
+          <div className="animate-fade-in">
+            <HoldingsTable
+              holdings={holdings}
+              selectedHoldings={selectedHoldings}
+              onSelectionChange={handleSelectionChange}
+              showAll={showAll}
+              onToggleShowAll={handleToggleShowAll}
+            />
+          </div>
         )}
       </div>
     </div>
