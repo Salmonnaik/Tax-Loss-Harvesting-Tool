@@ -76,12 +76,13 @@ A responsive React application for tax loss harvesting of cryptocurrency holding
 
 ## 📱 Screenshots
 
+## 📸 Screenshots
+
 ### Desktop View
-![Desktop View](<img width="362" height="789" alt="Screenshot 2026-04-17 134459" src="https://github.com/user-attachments/assets/5038aac9-fe1a-437b-bb2d-10ada2074a0f" />
-)
+![Desktop View](https://github.com/user-attachments/assets/5038aac9-fe1a-437b-bb2d-10ada2074a0f)
 *Full desktop experience showing all components including capital gains cards, holdings table, and interactive features.*
 
-### Mobile View  
+### Mobile View
 ![Mobile View](screenshots/mobile.png)
 *Responsive mobile layout with optimized table view and touch-friendly interactions.*
 
