@@ -74,37 +74,89 @@ A responsive React application for tax loss harvesting of cryptocurrency holding
 - After: ₹68,652.35 total gains  
 - **Savings: ₹2,000** (tax reduction)
 
-## 📱 Screenshots
+## 📱 Responsive Design - Mobile & Desktop Views
 
-## 📸 Screenshots
+### 🖥️ Desktop View Features
 
-### Desktop View
+**Full-Screen Experience:**
+- **Complete Layout**: All components visible simultaneously for maximum productivity
+- **Wide Table View**: Full holdings table with all columns visible at once
+- **Rich Hover Interactions**: Tooltips, hover effects, and detailed information on hover
+- **Efficient Data Entry**: Easy checkbox selection with mouse precision
+- **Multi-Column Display**: Optimal data analysis with side-by-side comparison
+- **Large Screen Real Estate**: Maximum visibility for complex calculations
+
+**Desktop-Specific Interactions:**
+- **Hover States**: Visual feedback on all interactive elements
+- **Keyboard Navigation**: Full keyboard accessibility and shortcuts
+- **Right-Click Context**: Additional context menus and options
+- **Drag Selection**: Multiple selection capabilities
+- **Advanced Sorting**: Multi-column sorting and filtering options
+
+### � Mobile View Features
+
+**Optimized Mobile Layout:**
+- **Stacked Components**: Vertically arranged for portrait orientation
+- **Touch-Friendly Design**: Larger touch targets (44px minimum) for easy interaction
+- **Swipe Gestures**: Natural mobile interactions for table navigation
+- **Compact Information**: Essential data prioritized for small screens
+- **Responsive Typography**: Scalable text for readability
+
+**Mobile-Specific Features:**
+- **Horizontal Table Scroll**: Smooth scrolling for wide table content
+- **Tap Selection**: Large checkbox areas for easy selection
+- **Mobile Menu**: Hamburger menu for additional options
+- **Pull-to-Refresh**: Natural mobile refresh gesture
+- **Adaptive Cards**: Capital gains cards stack vertically on mobile
+
+### � Screenshots
+
+#### Desktop View
 ![Desktop View](https://github.com/user-attachments/assets/5038aac9-fe1a-437b-bb2d-10ada2074a0f)
-*Full desktop experience showing all components including capital gains cards, holdings table, and interactive features.*
+*Complete desktop experience with full layout, hover effects, and comprehensive data display.*
 
-### Mobile View
+#### Mobile View  
 ![Mobile View](screenshots/mobile.png)
-*Responsive mobile layout with optimized table view and touch-friendly interactions.*
+*Responsive mobile layout with stacked components, touch-friendly interactions, and horizontal table scrolling.*
 
-### Selection Example
+#### Selection Example
 ![Selection Example](screenshots/selection.png)
-*Example of tax loss harvesting with selected holdings showing reduced tax liability.*
+*Interactive tax loss harvesting demonstration with selected holdings and real-time savings calculation. Shows how selecting loss-making holdings reduces overall tax liability.*
 
-## 📱 Mobile View vs Desktop View
+### 🎯 Responsive Breakpoints
 
-### Mobile View Features:
-- **Responsive Layout**: Optimized for smaller screens with stacked components
-- **Touch-Friendly**: Larger touch targets for mobile interactions
-- **Horizontal Scroll**: Table scrolls horizontally for better data visibility
-- **Compact Cards**: Capital gains cards adapt to mobile width
-- **Simplified Navigation**: Streamlined interface for mobile users
+**Desktop (≥1024px):**
+- Full 2-column layout for capital gains cards
+- Complete table with all columns visible
+- Rich hover interactions and tooltips
+- Maximum data density and information display
 
-### Desktop View Features:
-- **Full Layout**: All components visible simultaneously
-- **Hover Interactions**: Rich tooltips and hover effects on desktop
-- **Large Data Display**: Maximum data visibility with larger screen real estate
-- **Efficient Sorting**: Easy access to sorting and filtering options
-- **Multi-Column View**: Complete table structure for data analysis
+**Tablet (768px - 1023px):**
+- Adaptive layout with medium-sized components
+- Partial table visibility with horizontal scroll
+- Touch and mouse interaction support
+- Balanced information density
+
+**Mobile (<768px):**
+- Single-column stacked layout
+- Compact cards and simplified table
+- Touch-optimized interactions
+- Essential information prioritized
+
+### 🔄 Cross-Platform Consistency
+
+**Unified Features Across All Devices:**
+- **Real-time Calculations**: Instant tax savings updates
+- **Data Persistence**: Selections maintained across view changes
+- **Smooth Animations**: Consistent animation performance
+- **Accessibility**: WCAG 2.1 AA compliance on all devices
+- **Performance**: Optimized for both mobile and desktop
+
+**Device-Specific Optimizations:**
+- **Mobile**: Reduced motion for battery life, touch gestures
+- **Desktop**: Enhanced interactions, keyboard shortcuts
+- **Tablet**: Hybrid approach supporting both input methods
+- **Responsive Images**: Optimized for different screen densities
 
 ## 🚀 Getting Started
 
