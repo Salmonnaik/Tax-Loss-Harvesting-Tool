@@ -150,7 +150,21 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                       </div>
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-gray-900">
+                  <td className="py-3 px-4 text-gray-900 cursor-pointer hover:bg-gray-50"
+                     title={`Holdings: ${formatNumber(holding.totalHolding)} | Avg Buy: ${formatCurrency(holding.averageBuyPrice)}`}
+                     onMouseEnter={(e) => {
+                       setHoveredHolding(holding);
+                       setHoveredColumn('holdings');
+                       setMousePosition({ x: e.clientX, y: e.clientY });
+                     }}
+                     onMouseMove={(e) => {
+                       setMousePosition({ x: e.clientX, y: e.clientY });
+                     }}
+                     onMouseLeave={() => {
+                       setHoveredHolding(null);
+                       setHoveredColumn(null);
+                     }}
+                   >
                     <div className="text-sm">
                       Holdings: {formatNumber(holding.totalHolding)}
                     </div>
@@ -158,10 +172,38 @@ const HoldingsTable: React.FC<HoldingsTableProps> = ({
                       Avg Buy Price: {formatCurrency(holding.averageBuyPrice)}
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-gray-900">
+                  <td className="py-3 px-4 text-gray-900 cursor-pointer hover:bg-gray-50"
+                     title={`Average Buy Price: ${formatCurrency(holding.averageBuyPrice)}`}
+                     onMouseEnter={(e) => {
+                       setHoveredHolding(holding);
+                       setHoveredColumn('avgBuyPrice');
+                       setMousePosition({ x: e.clientX, y: e.clientY });
+                     }}
+                     onMouseMove={(e) => {
+                       setMousePosition({ x: e.clientX, y: e.clientY });
+                     }}
+                     onMouseLeave={() => {
+                       setHoveredHolding(null);
+                       setHoveredColumn(null);
+                     }}
+                   >
                     {formatCurrency(holding.averageBuyPrice)}
                   </td>
-                  <td className="py-3 px-4 text-gray-900">
+                  <td className="py-3 px-4 text-gray-900 cursor-pointer hover:bg-gray-50"
+                     title={`Current Price: ${formatCurrency(holding.currentPrice)}`}
+                     onMouseEnter={(e) => {
+                       setHoveredHolding(holding);
+                       setHoveredColumn('currentPrice');
+                       setMousePosition({ x: e.clientX, y: e.clientY });
+                     }}
+                     onMouseMove={(e) => {
+                       setMousePosition({ x: e.clientX, y: e.clientY });
+                     }}
+                     onMouseLeave={() => {
+                       setHoveredHolding(null);
+                       setHoveredColumn(null);
+                     }}
+                   >
                     {formatCurrency(holding.currentPrice)}
                   </td>
                   <td className="py-3 px-4">
