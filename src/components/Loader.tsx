@@ -12,12 +12,6 @@ const Loader: React.FC<LoaderProps> = ({ size = 'medium', message = 'Loading...'
     large: 'w-12 h-12'
   };
 
-  const dotSizeClasses = {
-    small: 'w-1 h-1',
-    medium: 'w-2 h-2',
-    large: 'w-3 h-3'
-  };
-
   return (
     <div className="flex flex-col items-center justify-center space-y-4 animate-fade-in">
       <div className="flex space-x-2">
